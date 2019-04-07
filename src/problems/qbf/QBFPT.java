@@ -1,6 +1,5 @@
 package problems.qbf;
 
-import problems.Evaluator;
 import solutions.Solution;
 
 import java.io.*;
