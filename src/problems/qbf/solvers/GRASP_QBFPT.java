@@ -241,7 +241,7 @@ public class GRASP_QBFPT extends AbstractGRASP<Integer> {
 		int N = 20;
 		int triplasProibidas[][] = new int[N][3];
 		generateTriples(triplasProibidas, N);
-		GRASP_QBFPT grasp = new GRASP_QBFPT(0.05, 1000, "instances/qbf020");
+		GRASP_QBFPT grasp = new GRASP_QBFPT(0.05, 1000, "instances/qbf0" + N);
 		Solution<Integer> bestSol = grasp.solve();
 		System.out.println("maxVal = " + bestSol);
 		long endTime = System.currentTimeMillis();
