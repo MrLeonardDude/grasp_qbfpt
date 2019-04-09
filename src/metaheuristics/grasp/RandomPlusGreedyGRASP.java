@@ -11,7 +11,7 @@ public abstract class RandomPlusGreedyGRASP<E> {
      * flag that indicates whether the code should print more information on
      * screen
      */
-    public static boolean verbose = true;
+    public static boolean verbose = false;
 
     /**
      * a random number generator
@@ -153,7 +153,7 @@ public abstract class RandomPlusGreedyGRASP<E> {
             /*
                Checks if it still is in the first p Random interactions.
              */
-            if(i < p ){
+            if(i < this.p ){
                 alpha = 1.0;
             }
 
