@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="5b04d6a9-b6f6-46dd-a525-167814a5158d" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/src/problems/qbf/solvers/GRASP_QBFPT.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/problems/qbf/solvers/GRASP_QBFPT.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/problems/qbf/solvers/RandomPlusGreedy_GRASP_QPFPT.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/problems/qbf/solvers/RandomPlusGreedy_GRASP_QPFPT.java" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -17,22 +17,13 @@
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/metaheuristics/grasp/AbstractGRASP.java">
+        <entry file="file://$PROJECT_DIR$/src/metaheuristics/grasp/RandomPlusGreedyGRASP.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="198">
-              <caret line="117" column="43" selection-start-line="117" selection-start-column="32" selection-end-line="117" selection-end-column="43" />
+            <state relative-caret-position="23">
+              <caret line="158" lean-forward="true" selection-start-line="158" selection-end-line="158" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/problems/qbf/solvers/REACTIVE_GRASP_QBF.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="391">
-              <caret line="246" column="4" lean-forward="true" selection-start-line="246" selection-start-column="4" selection-end-line="263" selection-end-column="5" />
             </state>
           </provider>
         </entry>
@@ -46,11 +37,23 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/problems/qbf/solvers/GRASP_QBFPT.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="307">
-              <caret line="324" column="72" selection-start-line="324" selection-start-column="72" selection-end-line="324" selection-end-column="72" />
+            <state relative-caret-position="100">
+              <caret line="233" column="4" selection-start-line="233" selection-start-column="4" selection-end-line="250" selection-end-column="5" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/problems/qbf/solvers/RandomPlusGreedy_GRASP_QPFPT.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="322">
+              <caret line="26" column="42" selection-start-line="26" selection-start-column="42" selection-end-line="26" selection-end-column="42" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -97,8 +100,8 @@
       <find>localSearch</find>
       <find>localSearc</find>
       <find>RCL</find>
-      <find>local</find>
       <find>searc</find>
+      <find>local</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -113,12 +116,12 @@
         <option value="$PROJECT_DIR$/src/metaheuristics/grasp/RandomPlusGreedyGRASP.java" />
         <option value="$PROJECT_DIR$/src/problems/qbf/solvers/GRASP_QBF.java" />
         <option value="$PROJECT_DIR$/src/problems/qbf/QBF_Inverse.java" />
-        <option value="$PROJECT_DIR$/src/problems/qbf/solvers/RandomPlusGreedy_GRASP_QPFPT.java" />
         <option value="$PROJECT_DIR$/src/metaheuristics/grasp/ReactiveGRASP.java" />
         <option value="$PROJECT_DIR$/bin/metaheuristics/grasp/ReactiveGRASP.java" />
         <option value="$PROJECT_DIR$/src/metaheuristics/grasp/AbstractGRASP.java" />
         <option value="$PROJECT_DIR$/src/problems/qbf/solvers/REACTIVE_GRASP_QBF.java" />
         <option value="$PROJECT_DIR$/src/problems/qbf/solvers/GRASP_QBFPT.java" />
+        <option value="$PROJECT_DIR$/src/problems/qbf/solvers/RandomPlusGreedy_GRASP_QPFPT.java" />
       </list>
     </option>
   </component>
@@ -210,7 +213,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Application.GRASP_QBFPT">
+  <component name="RunManager" selected="Application.RandomPlusGreedy_GRASP_QPFPT">
     <configuration name="GRASP_QBF" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="problems.qbf.solvers.GRASP_QBF" />
       <module name="GRASP_Framework" />
@@ -278,9 +281,9 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Application.RandomPlusGreedy_GRASP_QPFPT" />
         <item itemvalue="Application.GRASP_QBFPT" />
         <item itemvalue="Application.REACTIVE_GRASP_QBF" />
-        <item itemvalue="Application.RandomPlusGreedy_GRASP_QPFPT" />
         <item itemvalue="Application.Tripla" />
         <item itemvalue="Application.GRASP_QBF" />
       </list>
@@ -306,7 +309,7 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="22355000" />
+    <option name="totallyTimeSpent" value="22732000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1920" height="1080" extended-state="6" />
@@ -441,26 +444,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/metaheuristics/grasp/RandomPlusGreedyGRASP.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="23">
-          <caret line="158" lean-forward="true" selection-start-line="158" selection-end-line="158" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/problems/qbf/solvers/RandomPlusGreedy_GRASP_QPFPT.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-391">
-          <caret line="317" column="13" lean-forward="true" selection-start-line="317" selection-start-column="13" selection-end-line="317" selection-end-column="13" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/problems/qbf/solvers/GRASP_QBF.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="3412">
@@ -511,15 +494,35 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/problems/qbf/solvers/REACTIVE_GRASP_QBF.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="391">
-          <caret line="246" column="4" lean-forward="true" selection-start-line="246" selection-start-column="4" selection-end-line="263" selection-end-column="5" />
+        <state relative-caret-position="161">
+          <caret line="236" column="22" selection-start-line="236" selection-start-column="22" selection-end-line="236" selection-end-column="22" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/metaheuristics/grasp/RandomPlusGreedyGRASP.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="23">
+          <caret line="158" lean-forward="true" selection-start-line="158" selection-end-line="158" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/problems/qbf/solvers/GRASP_QBFPT.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="307">
-          <caret line="324" column="72" selection-start-line="324" selection-start-column="72" selection-end-line="324" selection-end-column="72" />
+        <state relative-caret-position="100">
+          <caret line="233" column="4" selection-start-line="233" selection-start-column="4" selection-end-line="250" selection-end-column="5" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/problems/qbf/solvers/RandomPlusGreedy_GRASP_QPFPT.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="322">
+          <caret line="26" column="42" selection-start-line="26" selection-start-column="42" selection-end-line="26" selection-end-column="42" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
