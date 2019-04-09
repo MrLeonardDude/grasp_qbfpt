@@ -57,4 +57,5 @@ public class QBF_Inverse extends QBF {
 		return -super.evaluateExchangeQBF(in,out);
 	}
 
+	public Integer getSize(){ return this.size;}
 }

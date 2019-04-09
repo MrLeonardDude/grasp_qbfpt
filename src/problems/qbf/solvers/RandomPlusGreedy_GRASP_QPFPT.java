@@ -40,6 +40,8 @@ public class RandomPlusGreedy_GRASP_QPFPT extends RandomPlusGreedyGRASP<Integer>
      */
     public RandomPlusGreedy_GRASP_QPFPT (Double alpha, Integer iterations, String filename, Integer p) throws IOException {
         super(new QBF_Inverse(filename), alpha, iterations, p);
+        this.N = new QBF_Inverse(filename).getSize();
+        this.generateTriples(this.N);
     }
 
     /*
@@ -75,9 +77,11 @@ public class RandomPlusGreedy_GRASP_QPFPT extends RandomPlusGreedyGRASP<Integer>
             x[0] = u;
             x[1] = G;
             x[2] = H;
-            System.out.println("[" + x[0] + ", " + x[1] + ", " + x[2] + "]");
+             if(verbose == Boolean.TRUE)
+                System.out.println("[" + x[0] + ", " + x[1] + ", " + x[2] + "]");
             RandomPlusGreedy_GRASP_QPFPT.ordena(x);
-            System.out.println("[" + x[0] + ", " + x[1] + ", " + x[2] + "]");
+            if(verbose == Boolean.TRUE)
+                System.out.println("[" + x[0] + ", " + x[1] + ", " + x[2] + "]");
             this.triples[u][0] = x[0];
             this.triples[u][1] = x[1];
             this.triples[u][2] = x[2];
@@ -231,7 +235,7 @@ public class RandomPlusGreedy_GRASP_QPFPT extends RandomPlusGreedyGRASP<Integer>
              */
             for (Integer c : CL) {
                 Double deltaCost = ObjFunction.evaluateInsertionCost(c, incumbentSol);
-                if (deltaCost <= minCost + alpha * (maxCost - minCost) && this.checkIfAllowed(c)) {
+                if (deltaCost <= minCost + alpha * (maxCost - minCost) && this.checkIfAllowed(c) == Boolean.TRUE) {
                     RCL.add(c);
                 }
             }
@@ -335,11 +339,9 @@ public class RandomPlusGreedy_GRASP_QPFPT extends RandomPlusGreedyGRASP<Integer>
      */
     public static void main(String[] args) throws IOException {
 
-        int N = 20;
-        Integer p = 20;
+        Integer p = 100;
         long startTime = System.currentTimeMillis();
-        RandomPlusGreedy_GRASP_QPFPT grasp = new RandomPlusGreedy_GRASP_QPFPT(0.05, 1000, "instances/qbf020", p);
-        grasp.generateTriples(N);
+        RandomPlusGreedy_GRASP_QPFPT grasp = new RandomPlusGreedy_GRASP_QPFPT(0.05, 1000, "instances/qbf040", p);
         Solution<Integer> bestSol = grasp.solve();
         System.out.println("maxVal = " + bestSol);
         long endTime   = System.currentTimeMillis();
