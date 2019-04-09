@@ -225,7 +225,7 @@ public class REACTIVE_GRASP_QBF extends ReactiveGRASP<Integer> {
 
 
 			/* Choose a candidate randomly from the RCL */
-			int rndIndex = new Random().nextInt(RCL.size());
+			int rndIndex = new Random(0).nextInt(RCL.size());
 			Integer inCand = RCL.get(rndIndex);
 			CL.remove(inCand);
 			incumbentSol.add(inCand);

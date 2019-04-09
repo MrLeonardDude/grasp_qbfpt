@@ -23,7 +23,7 @@ public abstract class AbstractGRASP<E> {
 	 * flag that indicates whether the code should print more information on
 	 * screen
 	 */
-	public static boolean verbose = true;
+	public static boolean verbose = false;
 
 	/**
 	 * a random number generator

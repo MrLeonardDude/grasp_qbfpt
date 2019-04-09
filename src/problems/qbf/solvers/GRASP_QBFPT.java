@@ -2,6 +2,7 @@ package problems.qbf.solvers;
 
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Random;
 
 import metaheuristics.grasp.AbstractGRASP;
 import problems.qbf.QBF_Inverse;
@@ -17,6 +18,10 @@ import solutions.Solution;
  */
 public class GRASP_QBFPT extends AbstractGRASP<Integer> {
 
+	int N;
+
+	int[][] triples;
+
 	/**
 	 * Constructor for the GRASP_QBF class. An inverse QBF objective function is
 	 * passed as argument for the superclass constructor.
@@ -30,6 +35,8 @@ public class GRASP_QBFPT extends AbstractGRASP<Integer> {
 	 */
 	public GRASP_QBFPT(Double alpha, Integer iterations, String filename) throws IOException {
 		super(new QBF_Inverse(filename), alpha, iterations);
+		this.N = new QBF_Inverse(filename).getSize();
+		this.generateTriples(this.N);
 	}
 
 	/*
@@ -48,6 +55,29 @@ public class GRASP_QBFPT extends AbstractGRASP<Integer> {
 
 		return _CL;
 
+	}
+
+	public void generateTriples(int size) {
+		int G, H;
+		int x[] = new int[3];
+		this.triples = new int[size][3];
+		this.N = size;
+		for (int u = 0; u < size; u++) {
+			G = g(u, size);
+			H = h(u, size, G);
+
+			x[0] = u;
+			x[1] = G;
+			x[2] = H;
+			if(verbose == Boolean.TRUE)
+				System.out.println("[" + x[0] + ", " + x[1] + ", " + x[2] + "]");
+			RandomPlusGreedy_GRASP_QPFPT.ordena(x);
+			if(verbose == Boolean.TRUE)
+				System.out.println("[" + x[0] + ", " + x[1] + ", " + x[2] + "]");
+			this.triples[u][0] = x[0];
+			this.triples[u][1] = x[1];
+			this.triples[u][2] = x[2];
+		}
 	}
 
 	/*
@@ -76,27 +106,6 @@ public class GRASP_QBFPT extends AbstractGRASP<Integer> {
 
 	}
 
-	/*
-	 * Cria��o das triplas proibidas
-	 */
-	public static void generateTriples(int triples[][], int size) {
-		int G, H;
-		int x[] = new int[3];
-		for (int u = 0; u < size; u++) {
-			G = g(u, size);
-			H = h(u, size, G);
-
-			x[0] = u;
-			x[1] = G;
-			x[2] = H;
-			System.out.println("[" + x[0] + ", " + x[1] + ", " + x[2] + "]");
-			ordena(x);
-			System.out.println("[" + x[0] + ", " + x[1] + ", " + x[2] + "]");
-			triples[u][0] = x[0];
-			triples[u][1] = x[1];
-			triples[u][2] = x[2];
-		}
-	}
 
 	public static void ordena(int x[]) {
 		int aux;
@@ -169,6 +178,74 @@ public class GRASP_QBFPT extends AbstractGRASP<Integer> {
 		return sol;
 	}
 
+	@Override
+	public Solution<Integer> constructiveHeuristic() {
+
+		CL = makeCL();
+		RCL = makeRCL();
+		incumbentSol = createEmptySol();
+		incumbentCost = Double.POSITIVE_INFINITY;
+
+		/* Main loop, which repeats until the stopping criteria is reached. */
+		while (!constructiveStopCriteria()) {
+
+			double maxCost = Double.NEGATIVE_INFINITY, minCost = Double.POSITIVE_INFINITY;
+			incumbentCost = ObjFunction.evaluate(incumbentSol);
+			updateCL();
+
+			/*
+			 * Explore all candidate elements to enter the solution, saving the
+			 * highest and lowest cost variation achieved by the candidates.
+			 */
+			for (Integer c : CL) {
+				Double deltaCost = ObjFunction.evaluateInsertionCost(c, incumbentSol);
+				if (deltaCost < minCost)
+					minCost = deltaCost;
+				if (deltaCost > maxCost)
+					maxCost = deltaCost;
+			}
+
+			/*
+			 * Among all candidates, insert into the RCL those with the highest
+			 * performance using parameter alpha as threshold.
+			 */
+			for (Integer c : CL) {
+				Double deltaCost = ObjFunction.evaluateInsertionCost(c, incumbentSol);
+				if (deltaCost <= minCost + alpha * (maxCost - minCost) && this.checkIfAllowed(c) == Boolean.TRUE) {
+					RCL.add(c);
+				}
+			}
+
+			/* Choose a candidate randomly from the RCL */
+			int rndIndex = new Random(0).nextInt(RCL.size());
+			Integer inCand = RCL.get(rndIndex);
+			CL.remove(inCand);
+			incumbentSol.add(inCand);
+			ObjFunction.evaluate(incumbentSol);
+			RCL.clear();
+
+		}
+
+		return incumbentSol;
+	}
+	private boolean checkIfAllowed(Integer e){
+
+		boolean firstFlag = Boolean.FALSE;
+
+		for(int i = 0; i < N; i++){
+			if(triples[i][0] == e || triples[i][1] == e || triples[i][2] == e){
+				for(Integer c : RCL){
+					if(triples[i][0] == c || triples[i][1] == c || triples[i][2] == c){
+						if(firstFlag == Boolean.TRUE)
+							return Boolean.FALSE;
+						else
+							firstFlag = Boolean.TRUE;
+					}
+				}
+			}
+		}
+		return Boolean.TRUE;
+	}
 	/**
 	 * {@inheritDoc}
 	 * 
@@ -238,10 +315,7 @@ public class GRASP_QBFPT extends AbstractGRASP<Integer> {
 	public static void main(String[] args) throws IOException {
 
 		long startTime = System.currentTimeMillis();
-		int N = 20;
-		int triplasProibidas[][] = new int[N][3];
-		generateTriples(triplasProibidas, N);
-		GRASP_QBFPT grasp = new GRASP_QBFPT(0.05, 1000, "instances/qbf0");
+		GRASP_QBFPT grasp = new GRASP_QBFPT(0.05, 1000, "instances/qbf060");
 		Solution<Integer> bestSol = grasp.solve();
 		System.out.println("maxVal = " + bestSol);
 		long endTime = System.currentTimeMillis();

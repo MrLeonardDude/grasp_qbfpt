@@ -222,7 +222,7 @@ public abstract class ReactiveGRASP<E> {
 		for (int i = 0; i < iterations; i++) {
 			
 			// randomico com peso - de acordo com o percentual de cada peso
-			Random r = new Random();
+			Random r = new Random(0);
 			int sorteios = 20;
 			for (int rp = 0; rp < sorteios; rp++) {
 			    double total = 0;
