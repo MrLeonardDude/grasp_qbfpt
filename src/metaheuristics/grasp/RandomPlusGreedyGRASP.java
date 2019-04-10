@@ -1,5 +1,6 @@
 package metaheuristics.grasp;
 
+import javafx.beans.binding.BooleanExpression;
 import problems.Evaluator;
 import solutions.Solution;
 
@@ -219,12 +220,14 @@ public abstract class RandomPlusGreedyGRASP<E> {
     public Solution<E> solve() {
 
         Integer n_repeats = 0;
+        long totalTime= 0;
+        int i =0;
         bestSol = createEmptySol();
-        for (int i = 0; i < iterations; i++) {
-
+        while (Boolean.TRUE) {
             /*
                Checks if it still is in the first p Random interactions.
              */
+            long startTime = System.currentTimeMillis();
             if(i < this.p ){
                 this.alpha = 1.0;
             }
@@ -244,8 +247,27 @@ public abstract class RandomPlusGreedyGRASP<E> {
                 if (verbose)
                     System.out.println("(Iter. " + i + ") BestSol = " + bestSol);
             }
-
+//            if(i == 0){
+//                curSol = bestSol.cost;
+//            }
+//            else{
+//                if(curSol.equals(bestSol.cost) ){
+//                    if(n_repeats == 100000)
+//                        break;
+//                    else
+//                        n_repeats++;
+//                }
+//                else{
+//                    n_repeats = 0;
+//                }
+//            }
+            long endTime   = System.currentTimeMillis();
+            totalTime += endTime - startTime;
+            i++;
+            if(totalTime > 1800000)
+                break;
         }
+        System.out.println("Numero de iterações" + i);
 
         return bestSol;
     }

@@ -2,17 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="5b04d6a9-b6f6-46dd-a525-167814a5158d" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/GRASP_Framework/metaheuristics/grasp/RandomPlusGreedyGRASP.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/GRASP_Framework/metaheuristics/grasp/RandomPlusGreedyGRASP.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/GRASP_Framework/problems/qbf/QBF.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/GRASP_Framework/problems/qbf/QBF.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/GRASP_Framework/problems/qbf/QBFPT.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/GRASP_Framework/problems/qbf/QBFPT.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/GRASP_Framework/problems/qbf/solvers/RandomPlusGreedy_GRASP_QPFPT.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/GRASP_Framework/problems/qbf/solvers/RandomPlusGreedy_GRASP_QPFPT.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/GRASP_Framework/problems/qbf/solvers/Tripla.class" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/metaheuristics/grasp/RandomPlusGreedyGRASP.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/metaheuristics/grasp/RandomPlusGreedyGRASP.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/problems/qbf/QBF.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/problems/qbf/QBF.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/problems/qbf/QBFPT.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/problems/qbf/QBFPT.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/problems/qbf/solvers/RandomPlusGreedy_GRASP_QPFPT.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/problems/qbf/solvers/RandomPlusGreedy_GRASP_QPFPT.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/problems/qbf/solvers/Tripla.java" beforeDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -29,11 +19,11 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/metaheuristics/grasp/RandomPlusGreedyGRASP.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="276">
-              <caret line="251" lean-forward="true" selection-start-line="251" selection-end-line="251" />
+            <state relative-caret-position="414">
+              <caret line="270" lean-forward="true" selection-start-line="270" selection-end-line="270" />
               <folding>
                 <element signature="imports" expanded="true" />
-                <element signature="e#7562#7563#0" expanded="true" />
+                <element signature="e#8344#8345#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -42,8 +32,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/problems/qbf/solvers/RandomPlusGreedy_GRASP_QPFPT.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="284">
-              <caret line="339" column="50" lean-forward="true" selection-end-line="348" />
+            <state relative-caret-position="307">
+              <caret line="341" selection-start-line="341" selection-end-line="342" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -282,11 +272,10 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="26227000" />
+    <option name="totallyTimeSpent" value="29647000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1920" height="1080" extended-state="6" />
-    <editor active="true" />
     <layout>
       <window_info content_ui="combo" id="Project" order="0" sideWeight="0.4946695" visible="true" weight="0.22518677" />
       <window_info id="Structure" order="1" sideWeight="0.5053305" side_tool="true" weight="0.22518677" />
@@ -453,8 +442,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/problems/qbf/solvers/RandomPlusGreedy_GRASP_QPFPT.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="284">
-          <caret line="339" column="50" lean-forward="true" selection-end-line="348" />
+        <state relative-caret-position="307">
+          <caret line="341" selection-start-line="341" selection-end-line="342" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
@@ -463,11 +452,11 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/metaheuristics/grasp/RandomPlusGreedyGRASP.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="276">
-          <caret line="251" lean-forward="true" selection-start-line="251" selection-end-line="251" />
+        <state relative-caret-position="414">
+          <caret line="270" lean-forward="true" selection-start-line="270" selection-end-line="270" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#7562#7563#0" expanded="true" />
+            <element signature="e#8344#8345#0" expanded="true" />
           </folding>
         </state>
       </provider>
