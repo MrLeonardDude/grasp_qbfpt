@@ -6,6 +6,7 @@ package metaheuristics.grasp;
 import java.util.ArrayList;
 import java.util.Random;
 
+import com.sun.org.apache.xpath.internal.operations.Bool;
 import problems.Evaluator;
 import solutions.Solution;
 
@@ -199,9 +200,11 @@ public abstract class AbstractGRASP<E> {
 	 * @return The best feasible solution obtained throughout all iterations.
 	 */
 	public Solution<E> solve() {
-
+		long totalTime= 0;
+		int i =0;
 		bestSol = createEmptySol();
-		for (int i = 0; i < iterations; i++) {
+		while (Boolean.TRUE) {
+			long startTime   = System.currentTimeMillis();
 			constructiveHeuristic();
 			localSearch();
 			if (bestSol.cost > incumbentSol.cost) {
@@ -209,8 +212,14 @@ public abstract class AbstractGRASP<E> {
 				if (verbose)
 					System.out.println("(Iter. " + i + ") BestSol = " + bestSol);
 			}
-		}
+			i++;
+			long endTime   = System.currentTimeMillis();
+			totalTime += endTime - startTime;
+			if(totalTime > 1800000)
+				break;
 
+		}
+		System.out.println("Numero de iterações" + i);
 		return bestSol;
 	}
 
