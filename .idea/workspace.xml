@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="5b04d6a9-b6f6-46dd-a525-167814a5158d" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/src/problems/qbf/solvers/RandomPlusGreedy_GRASP_QPFPT.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/problems/qbf/solvers/RandomPlusGreedy_GRASP_QPFPT.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/metaheuristics/grasp/RandomPlusGreedyGRASP.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/metaheuristics/grasp/RandomPlusGreedyGRASP.java" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -16,44 +16,24 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/metaheuristics/grasp/RandomPlusGreedyGRASP.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="23">
-              <caret line="158" lean-forward="true" selection-start-line="158" selection-end-line="158" />
+            <state relative-caret-position="414">
+              <caret line="270" lean-forward="true" selection-start-line="270" selection-end-line="270" />
               <folding>
                 <element signature="imports" expanded="true" />
+                <element signature="e#8344#8345#0" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/metaheuristics/grasp/ReactiveGRASP.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="187">
-              <caret line="238" column="12" selection-start-line="238" selection-start-column="12" selection-end-line="238" selection-end-column="12" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/problems/qbf/solvers/GRASP_QBFPT.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="100">
-              <caret line="233" column="4" selection-start-line="233" selection-start-column="4" selection-end-line="250" selection-end-column="5" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/problems/qbf/solvers/RandomPlusGreedy_GRASP_QPFPT.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="322">
-              <caret line="26" column="42" selection-start-line="26" selection-start-column="42" selection-end-line="26" selection-end-column="42" />
+            <state relative-caret-position="307">
+              <caret line="341" selection-start-line="341" selection-end-line="342" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -72,12 +52,9 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>updateCL</find>
-      <find>iterations</find>
       <find>construction</find>
       <find>constructiveHeuristic</find>
       <find>i</find>
-      <find>Tripla</find>
       <find>generateTriples</find>
       <find>u</find>
       <find>ordena</find>
@@ -89,7 +66,6 @@
       <find>meta</find>
       <find>alpha</find>
       <find>random</find>
-      <find>solve</find>
       <find>generate</find>
       <find>Abstract</find>
       <find>rng</find>
@@ -102,6 +78,10 @@
       <find>RCL</find>
       <find>searc</find>
       <find>local</find>
+      <find>solve</find>
+      <find>Value</find>
+      <find>Tripla</find>
+      <find>bestSol</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -110,10 +90,7 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/src/problems/qbf/QBF.java" />
-        <option value="$PROJECT_DIR$/src/problems/qbf/QBFPT.java" />
         <option value="$PROJECT_DIR$/src/problems/qbf/solvers/Tripla.java" />
-        <option value="$PROJECT_DIR$/src/metaheuristics/grasp/RandomPlusGreedyGRASP.java" />
         <option value="$PROJECT_DIR$/src/problems/qbf/solvers/GRASP_QBF.java" />
         <option value="$PROJECT_DIR$/src/problems/qbf/QBF_Inverse.java" />
         <option value="$PROJECT_DIR$/src/metaheuristics/grasp/ReactiveGRASP.java" />
@@ -121,7 +98,10 @@
         <option value="$PROJECT_DIR$/src/metaheuristics/grasp/AbstractGRASP.java" />
         <option value="$PROJECT_DIR$/src/problems/qbf/solvers/REACTIVE_GRASP_QBF.java" />
         <option value="$PROJECT_DIR$/src/problems/qbf/solvers/GRASP_QBFPT.java" />
+        <option value="$PROJECT_DIR$/src/problems/qbf/QBF.java" />
+        <option value="$PROJECT_DIR$/src/problems/qbf/QBFPT.java" />
         <option value="$PROJECT_DIR$/src/problems/qbf/solvers/RandomPlusGreedy_GRASP_QPFPT.java" />
+        <option value="$PROJECT_DIR$/src/metaheuristics/grasp/RandomPlusGreedyGRASP.java" />
       </list>
     </option>
   </component>
@@ -146,18 +126,7 @@
             <path>
               <item name="GRASP_Framework" type="b2602c69:ProjectViewProjectNode" />
               <item name="GRASP_Framework" type="462c0819:PsiDirectoryNode" />
-              <item name="instances" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="GRASP_Framework" type="b2602c69:ProjectViewProjectNode" />
-              <item name="GRASP_Framework" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="GRASP_Framework" type="b2602c69:ProjectViewProjectNode" />
-              <item name="GRASP_Framework" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="grasp" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="GRASP_Framework" type="b2602c69:ProjectViewProjectNode" />
@@ -179,12 +148,6 @@
               <item name="problems" type="462c0819:PsiDirectoryNode" />
               <item name="qbf" type="462c0819:PsiDirectoryNode" />
               <item name="solvers" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="GRASP_Framework" type="b2602c69:ProjectViewProjectNode" />
-              <item name="GRASP_Framework" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="solutions" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -309,11 +272,10 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="22732000" />
+    <option name="totallyTimeSpent" value="29647000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1920" height="1080" extended-state="6" />
-    <editor active="true" />
     <layout>
       <window_info content_ui="combo" id="Project" order="0" sideWeight="0.4946695" visible="true" weight="0.22518677" />
       <window_info id="Structure" order="1" sideWeight="0.5053305" side_tool="true" weight="0.22518677" />
@@ -345,37 +307,6 @@
       <window_info anchor="right" id="Palette&#9;" order="7" />
       <window_info anchor="right" id="Database" order="8" />
     </layout>
-    <layout-to-restore>
-      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.49573562" visible="true" weight="0.22518677" />
-      <window_info id="Structure" order="1" sideWeight="0.5042644" side_tool="true" weight="0.22518677" />
-      <window_info id="Image Layers" order="2" />
-      <window_info id="Designer" order="3" />
-      <window_info id="UI Designer" order="4" />
-      <window_info id="Capture Tool" order="5" />
-      <window_info id="Favorites" order="6" side_tool="true" />
-      <window_info anchor="bottom" id="Message" order="0" />
-      <window_info anchor="bottom" id="Find" order="1" />
-      <window_info anchor="bottom" id="Run" order="2" weight="0.35820895" />
-      <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
-      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
-      <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
-      <window_info anchor="bottom" id="TODO" order="6" />
-      <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Version Control" order="8" />
-      <window_info anchor="bottom" id="Database Changes" order="9" />
-      <window_info anchor="bottom" id="Terminal" order="10" />
-      <window_info anchor="bottom" id="Event Log" order="11" side_tool="true" />
-      <window_info anchor="bottom" id="Messages" order="12" weight="0.32978722" />
-      <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
-      <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
-      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
-      <window_info anchor="right" id="Palette" order="3" />
-      <window_info anchor="right" id="Theme Preview" order="4" />
-      <window_info anchor="right" id="Maven" order="5" />
-      <window_info anchor="right" id="Capture Analysis" order="6" />
-      <window_info anchor="right" id="Palette&#9;" order="7" />
-      <window_info anchor="right" id="Database" order="8" />
-    </layout-to-restore>
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="1" />
@@ -385,13 +316,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="184">
           <caret line="31" column="13" selection-start-line="31" selection-start-column="13" selection-end-line="31" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/problems/qbf/QBFPT.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="414">
-          <caret line="21" column="26" lean-forward="true" selection-start-line="21" selection-start-column="26" selection-end-line="21" selection-end-column="26" />
         </state>
       </provider>
     </entry>
@@ -409,13 +333,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/problems/qbf/solvers/Tripla.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="376">
-          <caret line="20" lean-forward="true" selection-start-line="20" selection-end-line="20" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/instances/qbf020">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="161">
@@ -427,13 +344,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="284">
           <caret line="13" column="17" selection-start-line="13" selection-start-column="17" selection-end-line="13" selection-end-column="17" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/problems/qbf/QBF.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="198">
-          <caret line="30" column="29" selection-start-line="30" selection-start-column="26" selection-end-line="30" selection-end-column="29" />
         </state>
       </provider>
     </entry>
@@ -499,16 +409,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/metaheuristics/grasp/RandomPlusGreedyGRASP.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="23">
-          <caret line="158" lean-forward="true" selection-start-line="158" selection-end-line="158" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/problems/qbf/solvers/GRASP_QBFPT.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="100">
@@ -519,12 +419,44 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/problems/qbf/solvers/Tripla.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="644">
+          <caret line="30" selection-start-line="29" selection-end-line="30" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/problems/qbf/QBFPT.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="298">
+          <caret line="149" lean-forward="true" selection-start-line="149" selection-end-line="149" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/problems/qbf/QBF.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-368">
+          <caret line="248" column="13" selection-start-line="248" selection-start-column="13" selection-end-line="248" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/problems/qbf/solvers/RandomPlusGreedy_GRASP_QPFPT.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="322">
-          <caret line="26" column="42" selection-start-line="26" selection-start-column="42" selection-end-line="26" selection-end-column="42" />
+        <state relative-caret-position="307">
+          <caret line="341" selection-start-line="341" selection-end-line="342" />
           <folding>
             <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/metaheuristics/grasp/RandomPlusGreedyGRASP.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="414">
+          <caret line="270" lean-forward="true" selection-start-line="270" selection-end-line="270" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#8344#8345#0" expanded="true" />
           </folding>
         </state>
       </provider>

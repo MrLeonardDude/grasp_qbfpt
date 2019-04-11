@@ -201,21 +201,6 @@ public class RandomPlusGreedy_GRASP_QPFPT extends RandomPlusGreedyGRASP<Integer>
         /* Main loop, which repeats until the stopping criteria is reached. */
         while (!constructiveStopCriteria()) {
 
-            /*
-               Checks if it still is in the first p Random interactions.
-             */
-            if(i < this.p ){
-                this.alpha = 1.0;
-            }
-
-            else if(this.iterations.equals(i-2)){
-                this.alpha = 0.0;
-            }
-
-            else{
-                this.alpha = this.alpha_default;
-            }
-
             double maxCost = Double.NEGATIVE_INFINITY, minCost = Double.POSITIVE_INFINITY;
             incumbentCost = ObjFunction.evaluate(incumbentSol);
             updateCL();
@@ -310,10 +295,10 @@ public class RandomPlusGreedy_GRASP_QPFPT extends RandomPlusGreedyGRASP<Integer>
                 }
             }
             // Evaluate exchanges
-            for (Integer candIn : CL) {
+            for (Integer candIn : CL ) {
                 for (Integer candOut : incumbentSol) {
                     double deltaCost = ObjFunction.evaluateExchangeCost(candIn, candOut, incumbentSol);
-                    if (deltaCost < minDeltaCost) {
+                    if (deltaCost < minDeltaCost && this.checkIfAllowedSol(candIn) == Boolean.TRUE) {
                         minDeltaCost = deltaCost;
                         bestCandIn = candIn;
                         bestCandOut = candOut;
@@ -351,7 +336,7 @@ public class RandomPlusGreedy_GRASP_QPFPT extends RandomPlusGreedyGRASP<Integer>
 
         Integer p = 100;
         long startTime = System.currentTimeMillis();
-        RandomPlusGreedy_GRASP_QPFPT grasp = new RandomPlusGreedy_GRASP_QPFPT(0.05, 1000, "instances/qbf020", p);
+        RandomPlusGreedy_GRASP_QPFPT grasp = new RandomPlusGreedy_GRASP_QPFPT(0.15, 70000000, "instances/qbf020", p);
         Solution<Integer> bestSol = grasp.solve();
         System.out.println("maxVal = " + bestSol);
         long endTime   = System.currentTimeMillis();

@@ -1,5 +1,6 @@
 package metaheuristics.grasp;
 
+import javafx.beans.binding.BooleanExpression;
 import problems.Evaluator;
 import solutions.Solution;
 
@@ -68,9 +69,15 @@ public abstract class RandomPlusGreedyGRASP<E> {
      */
     protected ArrayList<E> RCL;
 
-
+    /**
+     * p value crucial for Random Plus Greedy Implementation
+     */
     protected Integer p;
 
+    /**
+     *
+     */
+    protected Double curSol;
     /**
      * Creates the Candidate List, which is an ArrayList of candidate elements
      * that can enter a solution.
@@ -212,8 +219,27 @@ public abstract class RandomPlusGreedyGRASP<E> {
      */
     public Solution<E> solve() {
 
+        Integer n_repeats = 0;
+        long totalTime= 0;
+        int i =0;
         bestSol = createEmptySol();
-        for (int i = 0; i < iterations; i++) {
+        while (Boolean.TRUE) {
+            /*
+               Checks if it still is in the first p Random interactions.
+             */
+            long startTime = System.currentTimeMillis();
+            if(i < this.p ){
+                this.alpha = 1.0;
+            }
+
+            else if(this.iterations.equals(i-2)){
+                this.alpha = 0.0;
+            }
+
+            else{
+                this.alpha = this.alpha_default;
+            }
+
             constructiveHeuristic();
             localSearch();
             if (bestSol.cost > incumbentSol.cost) {
@@ -221,7 +247,27 @@ public abstract class RandomPlusGreedyGRASP<E> {
                 if (verbose)
                     System.out.println("(Iter. " + i + ") BestSol = " + bestSol);
             }
+//            if(i == 0){
+//                curSol = bestSol.cost;
+//            }
+//            else{
+//                if(curSol.equals(bestSol.cost) ){
+//                    if(n_repeats == 100000)
+//                        break;
+//                    else
+//                        n_repeats++;
+//                }
+//                else{
+//                    n_repeats = 0;
+//                }
+//            }
+            long endTime   = System.currentTimeMillis();
+            totalTime += endTime - startTime;
+            i++;
+            if(totalTime > 1800000)
+                break;
         }
+        System.out.println("Numero de iterações" + i);
 
         return bestSol;
     }
