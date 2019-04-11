@@ -15,14 +15,12 @@ import solutions.Solution;
  * Procedure). It consider a minimization problem.
  * 
  * @author ccavellucci, fusberti
- * @param <E>
- *            Generic type of the element which composes the solution.
+ * @param <E> Generic type of the element which composes the solution.
  */
 public abstract class AbstractGRASP<E> {
 
 	/**
-	 * flag that indicates whether the code should print more information on
-	 * screen
+	 * flag that indicates whether the code should print more information on screen
 	 */
 	public static boolean verbose = false;
 
@@ -77,8 +75,8 @@ public abstract class AbstractGRASP<E> {
 	protected ArrayList<E> RCL;
 
 	/**
-	 * Creates the Candidate List, which is an ArrayList of candidate elements
-	 * that can enter a solution.
+	 * Creates the Candidate List, which is an ArrayList of candidate elements that
+	 * can enter a solution.
 	 * 
 	 * @return The Candidate List.
 	 */
@@ -86,9 +84,9 @@ public abstract class AbstractGRASP<E> {
 
 	/**
 	 * Creates the Restricted Candidate List, which is an ArrayList of the best
-	 * candidate elements that can enter a solution. The best candidates are
-	 * defined through a quality threshold, delimited by the GRASP
-	 * {@link #alpha} greedyness-randomness parameter.
+	 * candidate elements that can enter a solution. The best candidates are defined
+	 * through a quality threshold, delimited by the GRASP {@link #alpha}
+	 * greedyness-randomness parameter.
 	 * 
 	 * @return The Restricted Candidate List.
 	 */
@@ -102,8 +100,7 @@ public abstract class AbstractGRASP<E> {
 	public abstract void updateCL();
 
 	/**
-	 * Creates a new solution which is empty, i.e., does not contain any
-	 * element.
+	 * Creates a new solution which is empty, i.e., does not contain any element.
 	 * 
 	 * @return An empty solution.
 	 */
@@ -111,8 +108,8 @@ public abstract class AbstractGRASP<E> {
 
 	/**
 	 * The GRASP local search phase is responsible for repeatedly applying a
-	 * neighborhood operation while the solution is getting improved, i.e.,
-	 * until a local optimum is attained.
+	 * neighborhood operation while the solution is getting improved, i.e., until a
+	 * local optimum is attained.
 	 * 
 	 * @return An local optimum solution.
 	 */
@@ -121,24 +118,21 @@ public abstract class AbstractGRASP<E> {
 	/**
 	 * Constructor for the AbstractGRASP class.
 	 * 
-	 * @param objFunction
-	 *            The objective function being minimized.
-	 * @param alpha
-	 *            The GRASP greediness-randomness parameter (within the range
-	 *            [0,1])
-	 * @param iterations
-	 *            The number of iterations which the GRASP will be executed.
+	 * @param objFunction The objective function being minimized.
+	 * @param alpha       The GRASP greediness-randomness parameter (within the
+	 *                    range [0,1])
+	 * @param iterations  The number of iterations which the GRASP will be executed.
 	 */
 	public AbstractGRASP(Evaluator<E> objFunction, Double alpha, Integer iterations) {
 		this.ObjFunction = objFunction;
 		this.alpha = alpha;
 		this.iterations = iterations;
 	}
-	
+
 	/**
 	 * The GRASP constructive heuristic, which is responsible for building a
-	 * feasible solution by selecting in a greedy-random fashion, candidate
-	 * elements to enter the solution.
+	 * feasible solution by selecting in a greedy-random fashion, candidate elements
+	 * to enter the solution.
 	 * 
 	 * @return A feasible solution to the problem being minimized.
 	 */
@@ -157,8 +151,8 @@ public abstract class AbstractGRASP<E> {
 			updateCL();
 
 			/*
-			 * Explore all candidate elements to enter the solution, saving the
-			 * highest and lowest cost variation achieved by the candidates.
+			 * Explore all candidate elements to enter the solution, saving the highest and
+			 * lowest cost variation achieved by the candidates.
 			 */
 			for (E c : CL) {
 				Double deltaCost = ObjFunction.evaluateInsertionCost(c, incumbentSol);
@@ -169,8 +163,8 @@ public abstract class AbstractGRASP<E> {
 			}
 
 			/*
-			 * Among all candidates, insert into the RCL those with the highest
-			 * performance using parameter alpha as threshold.
+			 * Among all candidates, insert into the RCL those with the highest performance
+			 * using parameter alpha as threshold.
 			 */
 			for (E c : CL) {
 				Double deltaCost = ObjFunction.evaluateInsertionCost(c, incumbentSol);
@@ -200,8 +194,9 @@ public abstract class AbstractGRASP<E> {
 	 * @return The best feasible solution obtained throughout all iterations.
 	 */
 	public Solution<E> solve() {
-		long totalTime= 0;
-		int i =0;
+		long ini = System.currentTimeMillis();
+
+		long inif;
 		bestSol = createEmptySol();
 		while (Boolean.TRUE) {
 			long startTime   = System.currentTimeMillis();
@@ -209,14 +204,15 @@ public abstract class AbstractGRASP<E> {
 			localSearch();
 			if (bestSol.cost > incumbentSol.cost) {
 				bestSol = new Solution<E>(incumbentSol);
+				System.out.println("(Iter. " + i + ") BestSol = " + bestSol);
 				if (verbose)
 					System.out.println("(Iter. " + i + ") BestSol = " + bestSol);
 			}
-			i++;
-			long endTime   = System.currentTimeMillis();
-			totalTime += endTime - startTime;
-			if(totalTime > 1800000)
+			inif = System.currentTimeMillis();
+
+			if (inif - ini > (30 * 60 * 1000))
 				break;
+		}
 
 		}
 		System.out.println("Numero de iterações" + i);
@@ -225,8 +221,7 @@ public abstract class AbstractGRASP<E> {
 
 	/**
 	 * A standard stopping criteria for the constructive heuristic is to repeat
-	 * until the incumbent solution improves by inserting a new candidate
-	 * element.
+	 * until the incumbent solution improves by inserting a new candidate element.
 	 * 
 	 * @return true if the criteria is met.
 	 */

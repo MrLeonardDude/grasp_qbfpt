@@ -23,6 +23,7 @@ public class GRASP_QBFPT extends AbstractGRASP<Integer> {
 	int[][] triples;
 
 	public static final int first_best = 0;
+
 	/**
 	 * Constructor for the GRASP_QBF class. An inverse QBF objective function is
 	 * passed as argument for the superclass constructor.
@@ -70,11 +71,11 @@ public class GRASP_QBFPT extends AbstractGRASP<Integer> {
 			x[0] = u;
 			x[1] = G;
 			x[2] = H;
-			if(verbose == Boolean.TRUE)
-				System.out.println("[" + x[0] + ", " + x[1] + ", " + x[2] + "]");
+	//		if (verbose == Boolean.TRUE)
+	//			System.out.println("[" + x[0] + ", " + x[1] + ", " + x[2] + "]");
 			RandomPlusGreedy_GRASP_QPFPT.ordena(x);
-			if(verbose == Boolean.TRUE)
-				System.out.println("[" + x[0] + ", " + x[1] + ", " + x[2] + "]");
+	//		if (verbose == Boolean.TRUE)
+	//			System.out.println("[" + x[0] + ", " + x[1] + ", " + x[2] + "]");
 			this.triples[u][0] = x[0];
 			this.triples[u][1] = x[1];
 			this.triples[u][2] = x[2];
@@ -105,6 +106,35 @@ public class GRASP_QBFPT extends AbstractGRASP<Integer> {
 
 		// do nothing since all elements off the solution are viable candidates.
 
+	}
+
+	public static void ordena(int x[]) {
+		int aux;
+		int a = x[0], b = x[1], c = x[2];
+
+		if (a > b) {
+			aux = a;
+			a = b;
+			b = aux;
+			if (b > c) {
+				aux = b;
+				b = c;
+				c = aux;
+				if (a > b) {
+					aux = a;
+					a = b;
+					b = aux;
+				}
+			}
+
+		} else if (b > c) {
+			aux = b;
+			b = c;
+			c = aux;
+		}
+		x[0] = a;
+		x[1] = b;
+		x[2] = c;
 	}
 
 	public static int h(int u, int n, int g) {
@@ -165,11 +195,11 @@ public class GRASP_QBFPT extends AbstractGRASP<Integer> {
 			updateCL();
 
 			/*
-			 * Explore all candidate elements to enter the solution, saving the
-			 * highest and lowest cost variation achieved by the candidates.
+			 * Explore all candidate elements to enter the solution, saving the highest and
+			 * lowest cost variation achieved by the candidates.
 			 */
 			for (Integer c : CL) {
-				if(this.checkIfAllowedSol(c) == Boolean.TRUE) {
+				if (this.checkIfAllowedSol(c) == Boolean.TRUE) {
 					Double deltaCost = ObjFunction.evaluateInsertionCost(c, incumbentSol);
 					if (deltaCost < minCost)
 						minCost = deltaCost;
@@ -179,8 +209,8 @@ public class GRASP_QBFPT extends AbstractGRASP<Integer> {
 			}
 
 			/*
-			 * Among all candidates, insert into the RCL those with the highest
-			 * performance using parameter alpha as threshold.
+			 * Among all candidates, insert into the RCL those with the highest performance
+			 * using parameter alpha as threshold.
 			 */
 			for (Integer c : CL) {
 				Double deltaCost = ObjFunction.evaluateInsertionCost(c, incumbentSol);
@@ -201,18 +231,20 @@ public class GRASP_QBFPT extends AbstractGRASP<Integer> {
 
 		return incumbentSol;
 	}
-	private boolean checkIfAllowedSol(Integer e){
+
+	private boolean checkIfAllowedSol(Integer e) {
 
 		boolean firstFlag = Boolean.FALSE;
-
-		for(int i = 0; i < N; i++){
-			if(triples[i][0] == e || triples[i][1] == e || triples[i][2] == e){
-				for(Integer c : incumbentSol){
-					if(triples[i][0] == c || triples[i][1] == c || triples[i][2] == c){
-						if(firstFlag == Boolean.TRUE)
-							return Boolean.FALSE;
-						else
-							firstFlag = Boolean.TRUE;
+		if (incumbentSol.size() > 1) {
+			for (int i = 0; i < N; i++) {
+				if (triples[i][0] == e || triples[i][1] == e || triples[i][2] == e) {
+					for (Integer c : incumbentSol) {
+						if (triples[i][0] == c || triples[i][1] == c || triples[i][2] == c) {
+							if (firstFlag == Boolean.TRUE)
+								return Boolean.FALSE;
+							else
+								firstFlag = Boolean.TRUE;
+						}
 					}
 				}
 				firstFlag = Boolean.FALSE;
@@ -220,12 +252,14 @@ public class GRASP_QBFPT extends AbstractGRASP<Integer> {
 		}
 		return Boolean.TRUE;
 	}
+
 	/**
 	 * {@inheritDoc}
 	 * 
 	 * The local search operator developed for the QBF objective function is
 	 * composed by the neighborhood moves Insertion, Removal and 2-Exchange.
 	 */
+	@SuppressWarnings("unused")
 	@Override
 	public Solution<Integer> localSearch() {
 
@@ -239,7 +273,7 @@ public class GRASP_QBFPT extends AbstractGRASP<Integer> {
 
 			// Evaluate insertions
 			for (Integer candIn : CL) {
-				if(this.checkIfAllowedSol(candIn) == Boolean.TRUE) {
+				if (this.checkIfAllowedSol(candIn) == Boolean.TRUE) {
 					double deltaCost = ObjFunction.evaluateInsertionCost(candIn, incumbentSol);
 					if (deltaCost < minDeltaCost) {
 						minDeltaCost = deltaCost;
@@ -268,6 +302,7 @@ public class GRASP_QBFPT extends AbstractGRASP<Integer> {
 					}
 				}
 			}
+
 			// Implement the best move, if it reduces the solution cost.
 			if (minDeltaCost < -Double.MIN_VALUE) {
 				if (bestCandOut != null) {
@@ -283,6 +318,7 @@ public class GRASP_QBFPT extends AbstractGRASP<Integer> {
 				ObjFunction.evaluate(incumbentSol);
 				if(first_best == 0 && flag_found)
 					break;
+
 			}
 		} while (minDeltaCost < -Double.MIN_VALUE);
 
@@ -295,14 +331,19 @@ public class GRASP_QBFPT extends AbstractGRASP<Integer> {
 	 */
 	public static void main(String[] args) throws IOException {
 
-		long startTime = System.currentTimeMillis();
-		GRASP_QBFPT grasp = new GRASP_QBFPT(0.05, 1000, "instances/qbf400");
-		Solution<Integer> bestSol = grasp.solve();
-		System.out.println("maxVal = " + bestSol);
-		long endTime = System.currentTimeMillis();
-		long totalTime = endTime - startTime;
-		System.out.println("Time = " + (double) totalTime / (double) 1000 + " seg");
+		String instances[] = { "020", "060", "080", "100", "200", "400" };
+		//String instances[] = { "200", "400" };"040", 
+		for (String inst : instances) {
+			System.out.println(inst);
+			long startTime = System.currentTimeMillis();
+			GRASP_QBFPT grasp = new GRASP_QBFPT(0.15, 10000000, "instances/qbf" + inst);
+			Solution<Integer> bestSol = grasp.solve();
+			System.out.println("maxVal = " + bestSol);
+			long endTime = System.currentTimeMillis();
+			long totalTime = endTime - startTime;
+			System.out.println("Time = " + (double) totalTime / (double) 1000 + " seg");
 
+		}
 	}
 
 }
